@@ -65,6 +65,13 @@ oc adm policy add-scc-to-user privileged system:serviceaccount:rook-nfs:rook-nfs
 
 ## Deploying the Rook NFS server
 
+Apply [server.yaml](artefacts/server.yaml) available here in this repository in the directory [artefacts](artefacts). 
+You can save this file and run:
+```
+oc apply -f server.yaml
+```
+or copy the content of the file and apply it using OpenShift web console (click on **+** in web console toolbar)
+
 
 
 
