@@ -37,8 +37,26 @@ Edit file **operator.yaml** Replace the original image **rook/nfs:v1.7.3** with 
 
 An example of updated [operator.yaml](artefacts/operator.yaml) file is available here in this repository in the [artefacts](artefacts) directory.
 
+Still in the directory **nfs/cluster/examples/kubernetes/nfs** , apply **crds.yaml** to create custom resource definitions:  
+```
+oc apply -f crds.yaml
+```
 
+Create operator deployment:
+```
+oc apply -f operator.yaml
+```
 
+Verify that operator is running:
+```
+oc get pod -n rook-nfs-system
+```
+
+The result should be similar to the following:
+```
+NAME                                 READY   STATUS    RESTARTS   AGE
+rook-nfs-operator-84fff9f699-45v2c   1/1     Running   0          43s
+```
 
 
 
