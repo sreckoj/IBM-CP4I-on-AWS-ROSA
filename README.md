@@ -63,7 +63,7 @@ Grant the Rook NFS service account access to the privileged SecurityContextConst
 oc adm policy add-scc-to-user privileged system:serviceaccount:rook-nfs:rook-nfs-server
 ```
 
-
+## Deploying the Rook NFS server
 
 
 
