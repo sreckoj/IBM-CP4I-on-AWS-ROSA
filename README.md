@@ -58,7 +58,10 @@ NAME                                 READY   STATUS    RESTARTS   AGE
 rook-nfs-operator-84fff9f699-45v2c   1/1     Running   0          43s
 ```
 
-
+Grant the Rook NFS service account access to the privileged SecurityContextConstraints (SCC) resources:
+```
+oc adm policy add-scc-to-user privileged system:serviceaccount:rook-nfs:rook-nfs-server
+```
 
 
 
