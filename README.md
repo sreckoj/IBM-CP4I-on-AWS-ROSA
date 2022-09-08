@@ -354,8 +354,7 @@ data:
 ## Install the Platform UI
 
 1. In the OpenShift web console navigate to **Operators > Installed Operators**, select the project - in our case **cp4i** and select the **IBM Cloud Pak for Integration** operator:
-
-<img width="850" src="images/Snip20220908_77.png">  
+    <img width="850" src="images/Snip20220908_77.png">  
 
 
 
