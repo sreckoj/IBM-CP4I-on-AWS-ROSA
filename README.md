@@ -131,7 +131,8 @@ Apply the following YAMLs by storing them to files and running the CLI command: 
       apiGroup: rbac.authorization.k8s.io    
     ```
 
-2. Create PersistenVolumeClaim for NFS. Please note that we selected here **gp3** as an existing RWO class that we are going to use. We also left the recomended size of 200 GB. This size actually depends on the planned number of instances of capabilities that require RWX storage. If we need it just for Platform UI then we can decide for the smaller size. By the documentation the required storage for Platform UI is 40 GB. 
+2. Create PersistenVolumeClaim for NFS. Please note that we selected here **gp3** as an existing RWO class that we are going to use. We also left the recomended size of 200 GB. This size actually depends on the planned number of instances of capabilities that require RWX storage. If we need it just for Platform UI then we can decide for the smaller size. By the documentation the required storage for Platform UI is 40 GB. <br>
+**Note:** Please do not be surprised if this PVC remains in the **pending** state. The volume binding mode for those classes is *WaitForFirstConsumer*. So, the volume will be created when it is really needed (in the next step when we deploy the server).
     ```yaml
     apiVersion: v1
     kind: PersistentVolumeClaim
