@@ -362,6 +362,9 @@ data:
 3. Define some name and accept the **license**. Optionaly change the number of replicas:
     <img width="850" src="images/Snip20220908_79.png">
 
+4. Scroll down. For the **storage class** select the new class that we just created - in our case it is **integration-storage**. **Do not click Create yet!**
+    <img width="850" src="images/Snip20220908_80.png">
+
 
 
 
