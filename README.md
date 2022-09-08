@@ -147,7 +147,27 @@ Apply the following YAMLs by storing them to files and running the CLI command: 
           storage: 200Gi    
     ```
 
-
+3. Deploy the NFS server
+    ```yaml
+    apiVersion: nfs.rook.io/v1alpha1
+    kind: NFSServer
+    metadata:
+      name: rook-nfs
+      namespace: rook-nfs
+    spec:
+      replicas: 1
+      exports:
+      - name: share1
+        server:
+          accessMode: ReadWrite
+          squash: "none"
+        # A Persistent Volume Claim must be created before creating NFS CRD instance.
+        persistentVolumeClaim:
+          claimName: nfs-pwx-claim
+      # A key/value list of annotations
+      annotations:
+        rook: nfs    
+    ```
 
 
 
