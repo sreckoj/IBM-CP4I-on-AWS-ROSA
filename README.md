@@ -359,6 +359,10 @@ data:
 2. Select **Platform UI** tab and click on the button **Create PlatformNavigator**:
     <img width="850" src="images/Snip20220908_78.png">
 
+3. Define some name and accept the **license**. Optionaly change the number of replicas:
+    <img width="850" src="images/Snip20220908_79.png">
+
+
 
 
 
