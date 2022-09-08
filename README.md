@@ -148,7 +148,7 @@ Apply the following YAMLs by storing them to files and running the CLI command: 
           storage: 200Gi    
     ```
 
-3. Deploy the NFS server
+3. Deploy the NFS server (note that the PVC created previously is now bound):
     ```yaml
     apiVersion: nfs.rook.io/v1alpha1
     kind: NFSServer
@@ -170,7 +170,15 @@ Apply the following YAMLs by storing them to files and running the CLI command: 
         rook: nfs    
     ```
 
-
+4. Verify that server pod is running:
+    ```
+    oc get pods -n rook-nfs
+    ```
+    The result should be similar to the following:
+    ```
+    NAME         READY   STATUS    RESTARTS   AGE
+    rook-nfs-0   2/2     Running   0          20m    
+    ```
 
 
 
