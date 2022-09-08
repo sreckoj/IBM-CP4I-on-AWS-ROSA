@@ -65,12 +65,9 @@ This approach means that we create a kind of RWX "facade" or "wrapper" around th
 
 ## Deploying the Rook NFS server
 
-Apply [server.yaml](artefacts/server.yaml) available here in this repository in the directory [artefacts](artefacts). 
-You can save this file and run:
-```
-oc apply -f server.yaml
-```
-or copy the content of the file and apply it using OpenShift web console (click on **+** in web console toolbar)
+Apply the following YAMLs by storing them to file and running the CLI command: `oc apply -f <file_name>` or by copy/pasting them to the *Import YAML* window in OpenShift web console:
+
+<img width="850" src="images/Snip20220908_76.png">  
 
 
 
