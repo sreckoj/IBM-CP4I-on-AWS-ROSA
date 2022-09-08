@@ -37,31 +37,31 @@ This approach means that we create a kind of RWX "facade" or "wrapper" around th
 
     An example of updated [operator.yaml](artefacts/operator.yaml) file is available here in this repository in the [artefacts](artefacts) directory.
 
-Still in the directory **nfs/cluster/examples/kubernetes/nfs** , apply **crds.yaml** to create custom resource definitions:  
-```
-oc apply -f crds.yaml
-```
+4. Still in the directory **nfs/cluster/examples/kubernetes/nfs** , apply **crds.yaml** to create custom resource definitions:  
+    ```
+    oc apply -f crds.yaml
+    ```
 
-Create operator deployment:
-```
-oc apply -f operator.yaml
-```
+5. Create operator deployment:
+    ```
+    oc apply -f operator.yaml
+    ```
 
-Verify that operator is running:
-```
-oc get pod -n rook-nfs-system
-```
+6. Verify that operator is running:
+    ```
+    oc get pod -n rook-nfs-system
+    ```
 
-The result should be similar to the following:
-```
-NAME                                 READY   STATUS    RESTARTS   AGE
-rook-nfs-operator-84fff9f699-45v2c   1/1     Running   0          43s
-```
+    The result should be similar to the following:
+    ```
+    NAME                                 READY   STATUS    RESTARTS   AGE
+    rook-nfs-operator-84fff9f699-45v2c   1/1     Running   0          43s
+    ```
 
-Grant the Rook NFS service account access to the privileged SecurityContextConstraints (SCC) resources:
-```
-oc adm policy add-scc-to-user privileged system:serviceaccount:rook-nfs:rook-nfs-server
-```
+7. Grant the Rook NFS service account access to the privileged SecurityContextConstraints (SCC) resources:
+    ```
+    oc adm policy add-scc-to-user privileged system:serviceaccount:rook-nfs:rook-nfs-server
+    ```
 
 ## Deploying the Rook NFS server
 
