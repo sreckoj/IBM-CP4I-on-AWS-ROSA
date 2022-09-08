@@ -200,7 +200,7 @@ reclaimPolicy: Delete
 volumeBindingMode: Immediate
 ```
 
-If you check your classes now, you will see our new class on the list:
+If you check the classes now, you will see on the list our new class named **integration-storage**:
 ```
 oc get sc
 
