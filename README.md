@@ -70,7 +70,7 @@ Apply the following YAMLs by storing them to files and running the CLI command: 
 <img width="850" src="images/Snip20220908_76.png">  
 
 1. Create RBAC objects:
-    ```
+    ```yaml
     ---
     apiVersion: v1
     kind: Namespace
@@ -131,8 +131,21 @@ Apply the following YAMLs by storing them to files and running the CLI command: 
       apiGroup: rbac.authorization.k8s.io    
     ```
 
-
-
+2. Create PersistenVolumeClaim for NFS. Please note that we selected here **gp3** as an existing RWO class that we are going to use. We also left the recomended size of 200 GB. This size actually depends on the planned number of instances of capabilities that require RWX storage. If we need it just for Platform UI then we can decide for the smaller size. By the documentation the required storage for Platform UI is 40 GB. 
+    ```yaml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: nfs-pwx-claim
+      namespace: rook-nfs
+    spec:
+      storageClassName: gp3  # we decided to use gp3, change if necessary 
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 200Gi    
+    ```
 
 
 
