@@ -181,8 +181,36 @@ Apply the following YAMLs by storing them to files and running the CLI command: 
     ```
 
 
+## Creating the storage class
 
+Apply this following YAML:
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  labels:
+    app: rook-nfs
+  name: integration-storage
+parameters:
+  exportName: share1
+  nfsServerName: rook-nfs
+  nfsServerNamespace: rook-nfs
+provisioner: nfs.rook.io/rook-nfs-provisioner
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+```
 
+If you check your classes now, you will see our new class on the list:
+```
+oc get sc
+
+NAME                  PROVISIONER                        RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+gp2                   kubernetes.io/aws-ebs              Delete          WaitForFirstConsumer   true                   7d14h
+gp2-csi               ebs.csi.aws.com                    Delete          WaitForFirstConsumer   true                   7d14h
+gp3 (default)         ebs.csi.aws.com                    Delete          WaitForFirstConsumer   true                   7d14h
+gp3-csi               ebs.csi.aws.com                    Delete          WaitForFirstConsumer   true                   7d14h
+integration-storage   nfs.rook.io/rook-nfs-provisioner   Delete          Immediate              false                  15s
+```
 
 
 
