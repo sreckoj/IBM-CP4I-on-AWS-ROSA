@@ -24,18 +24,18 @@ This approach means that we create a kind of RWX "facade" or "wrapper" around th
 ## Deploying Rook NFS
 
 1. Clone branch v1.7.3 of the rook nfs git repository:
-  ```
-  git clone --single-branch --branch v1.7.3 https://github.com/rook/nfs.git
-  ```
+    ```
+    git clone --single-branch --branch v1.7.3 https://github.com/rook/nfs.git
+    ```
 
-Navigate to this directory:
-```
-cd nfs/cluster/examples/kubernetes/nfs
-```
+2. Navigate to this directory:
+    ```
+    cd nfs/cluster/examples/kubernetes/nfs
+    ```
 
-Edit file **operator.yaml** Replace the original image **rook/nfs:v1.7.3** with IBM provided one: **icr.io/cpopen/cpd/rook-nfs:kz-220512**
+3. Edit file **operator.yaml** Replace the original image **rook/nfs:v1.7.3** with IBM provided one: **icr.io/cpopen/cpd/rook-nfs:kz-220512**
 
-An example of updated [operator.yaml](artefacts/operator.yaml) file is available here in this repository in the [artefacts](artefacts) directory.
+    An example of updated [operator.yaml](artefacts/operator.yaml) file is available here in this repository in the [artefacts](artefacts) directory.
 
 Still in the directory **nfs/cluster/examples/kubernetes/nfs** , apply **crds.yaml** to create custom resource definitions:  
 ```
