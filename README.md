@@ -388,7 +388,7 @@ data:
       version: 2022.2.1
     ```    
 
-6. Click on button **Create**. The process of creating the Platform UI start. It can take up to 45 minutes before it is copleted. Please be patient.
+6. Click on button **Create**. The process of creating the Platform UI starts. It can take up to 45 minutes before it is copleted. Please be patient.
     <img width="850" src="images/Snip20220908_82.png">
 
 
