@@ -23,10 +23,10 @@ This approach means that we create a kind of RWX "facade" or "wrapper" around th
 
 ## Deploying Rook NFS
 
-1. Clone branch v1.7.3 of the rook nfs git repository:
-   ```
-   git clone --single-branch --branch v1.7.3 https://github.com/rook/nfs.git
-   ```
+- Clone branch v1.7.3 of the rook nfs git repository:
+  ```
+  git clone --single-branch --branch v1.7.3 https://github.com/rook/nfs.git
+  ```
 
 Navigate to this directory:
 ```
