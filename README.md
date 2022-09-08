@@ -365,7 +365,7 @@ data:
 4. Scroll down. For the **storage class** select the new class that we just created - in our case it is **integration-storage**. <br> **DO NOT CLICK THE BUTTON 'CREATE' YET!**
     <img width="850" src="images/Snip20220908_80.png">
 
-5. **VERY IMPORTANT:** Switch to the YAML view and add the following annotation to the YAML structure: `integration.ibm.com/reconcile-zen-configmap: "false"`
+5. **VERY IMPORTANT:** Switch to the YAML view and add the following annotation to the YAML structure: `integration.ibm.com/reconcile-zen-configmap: "false"`<br><br>
     <img width="850" src="images/Snip20220908_81.png">
 
 
