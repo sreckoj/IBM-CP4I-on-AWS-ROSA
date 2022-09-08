@@ -368,6 +368,29 @@ data:
 5. **VERY IMPORTANT:** Switch to the YAML view and add the following annotation to the YAML structure: `integration.ibm.com/reconcile-zen-configmap: "false"`<br><br>
     <img width="850" src="images/Snip20220908_81.png">
 
+    You can copy/paste the values from this example:
+    ```yaml
+    apiVersion: integration.ibm.com/v1beta1
+    kind: PlatformNavigator
+    metadata:
+      name: integration-quickstart
+      namespace: cp4i
+      annotations:
+        integration.ibm.com/reconcile-zen-configmap: "false"
+    spec:
+      license:
+        accept: true
+        license: L-RJON-CD3JKX
+      storage:
+        class: integration-storage
+      mqDashboard: true
+      replicas: 1
+      version: 2022.2.1
+    ```    
+
+6. Click on button **Create**. The process of creating the Platform UI start. It can take up to 45 minutes before it is copleted. Please be patient.
+    <img width="850" src="images/Snip20220908_82.png">
+
 
 
 
