@@ -214,9 +214,142 @@ integration-storage   nfs.rook.io/rook-nfs-provisioner   Delete          Immedia
 
 ## Creating a ConfigMap
 
+The following ConfigMap has to be created in the namespace where we are going to create an instance of the Platform UI (PlatformNavigator). In our case it is **cp4i**. Besides the namespace, you must specify the newly created storage class -  in our case **integration-storage** and the original RWO class - in our case **gp3**. The locations of those properties are marked with comments in the bellow YAML:
 
+```yaml
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: ibm-zen-config
+  namespace: cp4i                             # <-- Platform Navigator namespace
+data:
+  zen: |-
+    storage_data:
+      storageClass: integration-storage       # <-- Our new storage class
+      zenCoreMetaDbStorageClass: gp3          # <-- The original RWO class
+    scale_data:
+      Usermgmt:
+        name: usermgmt
+        kind: Deployment
+        container: usermgmt-container
+        replicas: 1
+        resources:
+          limits:
+            cpu: 400m
+            memory: 512Mi
+          requests:
+            cpu: 200m
+            memory: 256Mi
+      ZenCoreMetaDb:
+        name: zen-metastoredb
+        kind: StatefulSet
+        container: zen-metastoredb
+        replicas: 3
+        resources:
+          limits:
+            cpu: 500m
+            memory: 2048Mi
+          requests:
+            cpu: 100m
+            memory: 512Mi
+      Nginx:
+        name: ibm-nginx
+        kind: Deployment
+        container: ibm-nginx-container
+        replicas: 1
+        resources:
+          limits:
+            cpu: 400m
+            memory: 512Mi
+          requests:
+            cpu: 200m
+            memory: 256Mi
+      ZenCore:
+        name: zen-core
+        kind: Deployment
+        container: zen-core-container
+        replicas: 1
+        resources:
+          limits:
+            cpu: 400m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+      ZenCoreApi:
+        name: zen-core-api
+        kind: Deployment
+        container: zen-core-api-container
+        replicas: 1
+        resources:
+          limits:
+            cpu: 400m
+            memory: 1024Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+      ZenWatcher:
+        name: zen-watcher
+        kind: Deployment
+        container: zen-watcher-container
+        replicas: 1
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1024Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+      ZenAudit:
+        name: zen-audit
+        kind: Deployment
+        container: zen-audit-container
+        replicas: 1
+        resources:
+          limits:
+            cpu: 200m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+      ZenWatchdog:
+        name: zen-watchdog
+        kind: Deployment
+        container: zen-watchdog-container
+        replicas: 1
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+      ZenDataSorcerer:
+        name: zen-data-sorcerer
+        kind: Deployment
+        container: zen-data-sorcerer-container
+        replicas: 1
+        resources:
+          limits:
+            cpu: 100m
+            memory: 256Mi
+          requests:
+            cpu: 30m
+            memory: 128Mi
+      DsxInfluxdb:
+        name: dsx-influxdb
+        kind: StatefulSet
+        container: dsx-influxdb
+        replicas: 1
+        resources:
+          limits:
+            cpu: 400m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
 
-
+```
 
 
 
